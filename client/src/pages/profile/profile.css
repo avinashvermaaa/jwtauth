@@ -1,21 +1,204 @@
-.profile-msg {
-  background: #0f172a;
-  color: #22c55e;
-  padding: 20px;
-  border-radius: 8px;
-  overflow-x: auto;
+.profile-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
 }
 
-.home-btn {
-  background: #1677ff;
-  border: none;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
+.profile-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.profile-nav-brand {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a78bfa, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-nav-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.profile-content {
+  max-width: 680px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+.profile-content {
+  max-width: 680px;
+  margin: 48px auto 0;
+  padding: 0 24px 40px;
+}
+
+.profile-header-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 32px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 88px;
+  height: 88px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.45);
+}
+
+.profile-name {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.profile-email {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.profile-role-badge {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(124, 58, 237, 0.2);
+  color: #c4b5fd;
+  border: 1px solid rgba(124, 58, 237, 0.4);
+}
+
+.profile-details-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.profile-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.home-btn:hover {
-  background: #0958d9;
+.profile-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-field:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.profile-field-key {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: capitalize;
+}
+
+.profile-field-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e2e8f0;
+  max-width: 60%;
+  text-align: right;
+  word-break: break-all;
+}
+
+.profile-message {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #86efac;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.profile-error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: white;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 15px;
 }
