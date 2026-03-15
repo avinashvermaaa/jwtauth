@@ -1,40 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import { getProfile } from "../../services/user.service";
+import "../profile/profile.css";
 
 const Profile = () => {
-    const [user, setUser] = useState(null);
-    const [message, setMessage] = useState('');
-    const API_URL = process.env.REACT_APP_API_URL;
-    useEffect(() => {
-        // Fetch profile data from backend
-        const fetchProfile = async () => {
-            try {
-                const res = await fetch(`${API_URL}/profile`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                const data = await res.json();
-                setMessage(data.message);
-                setUser(data.user);
-            } catch (err) {
-                setMessage('Failed to load profile');
-            }
-        };
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [message, setMessage] = useState("");
 
-        fetchProfile();
-    }, []);
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        const data = await getProfile();
+        setUser(data.user);
+        setMessage(data.message);
 
-    if (!user) {
-        return <div>Loading profile...</div>;
-    }
+      } catch (err) {
+        setMessage("Failed to load profile");
+      }
+    };
+    loadProfile();
+  }, []);
 
-    return (
-        <>
-            <h2>Profile Page</h2>
-            <p>{message}</p>
-            {user && <pre>{JSON.stringify(user,null,2)}</pre>}
-        </>
-    );
+
+  return (
+    <>
+      <h2>Profile Page</h2>
+      <p>{message}</p>
+
+      <pre className='profile-msg'>{JSON.stringify(user, null, 2)}</pre>
+      <button className="home-btn" onClick={() => navigate("/home")}>
+        Go to Home
+      </button>
+    </>
+  );
 };
 
 export default Profile;

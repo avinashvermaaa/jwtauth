@@ -8,25 +8,25 @@ dotenv.config();
 const router = express.Router();
 const SECRET = process.env.SECRET;
 
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
     const { email, password } = req.body;
     const user = users.find(
-        u=> u.useremail === email && u.password === password
+        u => u.useremail === email && u.password === password
     );
 
-    if(!user){
+    if (!user) {
         return res.status(401).json({
-            message : "Invalid Credentials"
+            message: "Invalid Credentials"
         });
     }
 
     const token = jwt.sign(
-        {id: user.id, useremail: user.useremail},
+        { id: user.id, useremail: user.useremail },
         SECRET,
-        {expiresIn: "1h"}
+        { expiresIn: "1h" }
     );
 
-    res.status(200).json({token});
+    res.status(200).json({ token });
 
 });
 
