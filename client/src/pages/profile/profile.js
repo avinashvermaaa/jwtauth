@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 const Profile = () => {
     const [user, setUser] = useState(null);
     const [message, setMessage] = useState('');
-
+    const API_URL = process.env.REACT_APP_API_URL;
     useEffect(() => {
         // Fetch profile data from backend
         const fetchProfile = async () => {
             try {
-                const res = await fetch('/api/profile', {
+                const res = await fetch(`${API_URL}/profile`, {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }
@@ -29,15 +29,11 @@ const Profile = () => {
     }
 
     return (
-        <div>
+        <>
             <h2>Profile Page</h2>
             <p>{message}</p>
-            <div>
-                <strong>Username:</strong> {user.username}<br />
-                <strong>Email:</strong> {user.email}
-                {/* Add more user fields as needed */}
-            </div>
-        </div>
+            {user && <pre>{JSON.stringify(user,null,2)}</pre>}
+        </>
     );
 };
 
